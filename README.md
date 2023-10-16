@@ -1,9 +1,12 @@
-I. Exploration locale en solo
+## I. Exploration locale en solo
+
+
+### 1. Affichage d'informations sur la pile TCP/IP locale
 
 
 🌞 Affichez les infos des cartes réseau de votre PC
 ```
-j'utilise la commande : ipconfig /all et ipconfig
+j'utilise la commande : $ ipconfig /all et ipconfig
 
 Carte réseau sans fil Wi-Fi :
 
@@ -17,12 +20,12 @@ Adresse physique . . . . . . . . . . . : 00-FF-71-93-73-6B
 ```
 🌞 Affichez votre gateway
 ```
-j'utilise la commande ipconfig
+j'utilise la commande $ ipconfig
 Passerelle par défaut. . . . . . . . . : 10.33.51.254
 ```
 🌞 Déterminer la MAC de la passerelle
 ```
-j'utilise la commande arp -a
+j'utilise la commande : $ arp -a
 10.33.51.254          7c-5a-1c-cb-fd-a4     dynamique
 ```
 🌞 Trouvez comment afficher les informations sur une carte IP (change selon l'OS)
@@ -33,6 +36,10 @@ adresse IP : 10.33.48.37
 adresse MAC : 38-7A-0E-C6-72-0D
 passerelle : 10.33.51.254
 ```
+
+
+### 2. Modifications des informations
+
 
 🌞 Utilisez l'interface graphique de votre OS pour changer d'adresse IP :
 ```
@@ -47,7 +54,14 @@ Il est possible de perdre l'accès internet si on utilise la même adresse IP qu
 ```
 
 
-II. Exploration locale en duo
+## II. Exploration locale en duo
+
+
+### 1. Prérequis
+
+### 2. Câblage
+
+### 3. Modification d'adresse IP
 
 
 🌞 Modifiez l'IP des deux machines pour qu'elles soient dans le même réseau
@@ -57,7 +71,7 @@ masque -> 255.255.255.0
 ```
 🌞 Vérifier à l'aide d'une commande que votre IP a bien été changée
 ```
-commande = ipconfig /all
+commande = $ ipconfig /all
 ipv4 = 10.10.10.20 (modifié)
 auto-configuration ipv4 = 169.254.130.203 (de base)
 
@@ -77,9 +91,13 @@ Réponse de 10.10.10.24 : octets=32 temps<1ms TTL=128
 ```
 🌞 Déterminer l'adresse MAC de votre correspondant
 ```
-commande = arp -a
+commande = $ arp -a
  2c-f0-5d-66-be-f2
  ```
+
+
+ ### 4. Petit chat privé
+
 
 🌞 Sur le PC serveur avec par exemple l'IP 192.168.1.1
 ```
@@ -107,5 +125,54 @@ $.\nc.exe -l -p 8833 -s 10.10.10.20
 On peut se connecter en ethernet grace a l'IP mais plus en Wifi
  ```
 
-🌞 Activez et configurez votre firewall
+### 5. Firewall
+ ```
+X
+ ```
 
+ ### 6. Utilisation d'un des deux comme gateway
+  ```
+X
+ ```
+
+
+## III. Manipulations d'autres outils/protocoles côté client
+
+### 1. DHCP
+
+🌞Exploration du DHCP, depuis votre PC
+ ```
+(Cette partie n'a pas été faite à Ynov mais chez moi, par conséquent les résultat seront probablement différents)
+
+$ ipconfig /all
+Serveur DHCP : 192.168.1.254
+
+Bail obtenu. . . . . . . . . . . . . . : lundi 16 octobre 2023 19:02:50
+Bail expirant. . . . . . . . . . . . . : mardi 17 octobre 2023 07:02:40
+ ```
+### 2. DNS
+
+🌞** Trouver l'adresse IP du serveur DNS que connaît votre ordinateur**
+ ```
+$ ipconfig /all | findstr "Serveurs DNS."
+Serveurs DNS. . .  . . . . . . . . . . : 192.168.1.254
+ ```
+
+ 🌞 Utiliser, en ligne de commande l'outil nslookup (Windows, MacOS) ou dig (GNU/Linux, MacOS) pour faire des requêtes DNS à la main
+```
+$ nslookup google.com
+142.250.179.110
+
+$ nslookup ynov.com
+104.26.10.233
+104.26.11.233
+172.67.74.226
+
+Address:  192.168.1.254
+On fait la requête au DHCP
+```
+
+## IV. Wireshark
+```
+X
+```
