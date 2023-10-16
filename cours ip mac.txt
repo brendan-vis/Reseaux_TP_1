@@ -1,0 +1,24 @@
+adresse mac
+
+gravé physiquement sur la carte réseau
+adresse mac = adresse physique
+Une seule unique dans le monde
+12 chiffre ou lettre (max 16max=f (utilise hexadecimal)) donc 16^12 possibilité
+
+adresse ip
+
+on est co dans une LAN
+ex 192.168.10.10/22 	22 est le masque de sous réseau
+MASQUE SOUS RESAU 255.255.252.0 SOIT EN BINAIRE 1111 1111. 1111 1111.1111 1100.0000 0000 (SOIT 22 CHIFFRE BINAIRE 1)
+
+255.255.252.0
+1111 1111.1111 1111.1111 1100.0000 0000
+
+10.33.50.231
+0000 1010.0010 0001.0011 0010.1110 0111
+
+TANT QU'IL Y A UN 1 AU MASQUE DE SOUS RESEAU, ON REPORTE LE CHIFFRE BINAIRE DE L'IP
+SOIT 0000 1010.0010 0001.0011 0000.0000 0000
+	10	33	   48		0
+adresse de resau
+10.33.48.0
