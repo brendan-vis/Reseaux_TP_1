@@ -127,7 +127,11 @@ On peut se connecter en ethernet grace a l'IP mais plus en Wifi
 
 ### 5. Firewall
  ```
-X
+On a créé des ports en entrée et en sortie autorisant l'accès a une autre IP. J'ai enlevé mon WIFI et me suis connecté au WIFI grace au pc de ma camarade avec qui j'étais branché en ethernet.
+
+j'ai testé que javais bien internet avec la commande suivante :
+$ ping 1.1.1.1
+Réponse de 1.1.1.1 : octets=32 temps=15 ms TTL=56
  ```
 
  ### 6. Utilisation d'un des deux comme gateway
